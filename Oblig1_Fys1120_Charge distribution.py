@@ -2,7 +2,7 @@
 #// Fys1120 - Oblig_1 Studying a charge distribution, Thashian Thayananthan, Sami Shafi
 #//============================================================================================
 #// Programmen under er den numeriske løsningen for feltet og potensialet.
-#// Koden som blir brukt er kommer til å bli vist i små deler i PDF-en. 
+#// Koden som blir brukt her kommer til å bli vist i små deler i PDF-en. 
 #//============================================================================================
  
 import numpy as np
@@ -48,9 +48,6 @@ for i in range(len(rx.flat)):
     r = np.array([rx.flat[i],ry.flat[i],0])
     V.flat[i] = epotlist(r,Q,R)
 
-#//============================================================================================
-#Finner feltet
-#//============================================================================================
 E_y,E_x = np.gradient(-V)
 Emag = np.sqrt(E_x**2 + E_y**2)
 
