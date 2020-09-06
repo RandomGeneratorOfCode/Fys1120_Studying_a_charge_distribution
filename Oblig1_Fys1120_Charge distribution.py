@@ -8,7 +8,9 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-'''Funksjon for Feltet; r,Q,R'''
+#//============================================================================================
+#Funksjon for Feltet; r,Q,R
+#//============================================================================================
 def epotlist(r,Q,R):
     V = 0
     for i in range(len(R)):
@@ -20,7 +22,9 @@ def epotlist(r,Q,R):
 
 R = []; Q = []
 
-'''Framgangsmåten for å finne ladningene rundt ringen.'''
+#//============================================================================================
+#Framgangsmåten for å finne ladningene rundt ringen.
+#//============================================================================================
 theta = np.linspace(0,np.pi*2,100)
 
 a = 50
@@ -30,7 +34,9 @@ for i in range(1,100):
     R.append(r0)
     Q.append(q0)
 
-'''Antal målinger som skal skje (N).'''
+#//============================================================================================
+#Antal målinger som skal skje (N).
+#//============================================================================================
 Lx = 150; Ly = 150
 N = 80
 x = np.linspace(-Lx,Lx,N)
@@ -42,7 +48,9 @@ for i in range(len(rx.flat)):
     r = np.array([rx.flat[i],ry.flat[i],0])
     V.flat[i] = epotlist(r,Q,R)
 
-'''Finner feltet'''
+#//============================================================================================
+#Finner feltet
+#//============================================================================================
 E_y,E_x = np.gradient(-V)
 Emag = np.sqrt(E_x**2 + E_y**2)
 
@@ -51,7 +59,9 @@ scaleE = np.log10(Emag) - minlogEmag
 uEx = E_x / Emag
 uEy = E_y / Emag
 
-'''Plotting av koden'''
+#//============================================================================================
+#Plotting av koden
+#//============================================================================================
 levels = np.arange(0, 3.5+0.2, 0.2)
 cmap = plt.cm.get_cmap('plasma')
 
@@ -72,10 +82,11 @@ ax2.set_title("Electric Field Using streamplot")
 
 plt.show()
 
-'''Denne delen av koden er hvor vi undersøker hvordan feltet og
-potensialet oppfører seg. Dette sammenlikner vi med både det presise og
-for forenklede metoden.
-'''
+#//============================================================================================
+#Denne delen av koden er hvor vi undersøker hvordan feltet og
+#potensialet oppfører seg. Dette sammenlikner vi med både det presise og
+#for forenklede metoden.
+#//============================================================================================
 xs = np.linspace(-10,10,1000)
 epsilon0 = 8.854187812e-12
 R = 1
